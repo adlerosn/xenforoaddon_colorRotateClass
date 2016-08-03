@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="colorRotateClass" title="[kiror] Color rotate CSS class" version_string="0.0" version_id="0" url="https://github.com/adlerosn/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="init_dependencies" execute_order="100" callback_class="colorRotateClass_EventListener_InitDependencies" callback_method="listen" active="1" hint="" description="Add helper"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups>
+      <permission_group permission_group_id="colorRotateGrp"/>
+    </permission_groups>
+    <permissions>
+      <permission permission_group_id="colorRotateGrp" permission_id="colorRotateUsername1s" permission_type="flag" default_value="unset" interface_group_id="colorRotateInt" display_order="1"/>
+      <permission permission_group_id="colorRotateGrp" permission_id="colorRotateUsername2s" permission_type="flag" default_value="unset" interface_group_id="colorRotateInt" display_order="2"/>
+      <permission permission_group_id="colorRotateGrp" permission_id="colorRotateUsername3s" permission_type="flag" default_value="unset" interface_group_id="colorRotateInt" display_order="3"/>
+      <permission permission_group_id="colorRotateGrp" permission_id="colorRotateUsertitle1s" permission_type="flag" default_value="unset" interface_group_id="colorRotateInt" display_order="11"/>
+      <permission permission_group_id="colorRotateGrp" permission_id="colorRotateUsertitle2s" permission_type="flag" default_value="unset" interface_group_id="colorRotateInt" display_order="12"/>
+      <permission permission_group_id="colorRotateGrp" permission_id="colorRotateUsertitle3s" permission_type="flag" default_value="unset" interface_group_id="colorRotateInt" display_order="13"/>
+    </permissions>
+    <interface_groups>
+      <interface_group interface_group_id="colorRotateInt" display_order="1"/>
+    </interface_groups>
+  </permissions>
+  <phrases>
+    <phrase title="permission_colorRotateGrp_colorRotateUsername1s" version_id="0" version_string="0.0"><![CDATA[Rotate color hue once in every second - Username]]></phrase>
+    <phrase title="permission_colorRotateGrp_colorRotateUsername2s" version_id="0" version_string="0.0"><![CDATA[Rotate color hue once in every 2 seconds - Username]]></phrase>
+    <phrase title="permission_colorRotateGrp_colorRotateUsername3s" version_id="0" version_string="0.0"><![CDATA[Rotate color hue once in every 3 seconds - Username]]></phrase>
+    <phrase title="permission_colorRotateGrp_colorRotateUsertitle1s" version_id="0" version_string="0.0"><![CDATA[Rotate color hue once in every second - User Title]]></phrase>
+    <phrase title="permission_colorRotateGrp_colorRotateUsertitle2s" version_id="0" version_string="0.0"><![CDATA[Rotate color hue once in every 2 seconds - User Title]]></phrase>
+    <phrase title="permission_colorRotateGrp_colorRotateUsertitle3s" version_id="0" version_string="0.0"><![CDATA[Rotate color hue once in every 3 seconds - User Title]]></phrase>
+    <phrase title="permission_group_colorRotateGrp" version_id="0" version_string="0.0"><![CDATA[[kiror] Color rotate CSS class]]></phrase>
+    <phrase title="permission_interface_colorRotateInt" version_id="0" version_string="0.0"><![CDATA[[kiror] Color rotate CSS class]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="xenforo.css" modification_key="addhueanimationcssdefinitions" description="Adds hue animation CSS definition" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[/*
+ * XenForo Core CSS
+ *
+ */]]></find>
+      <replace><![CDATA[$0
+
+
+.hue_animated_1s{
+	animation: hueAnim 1s infinite linear;
+	-webkit-animation: hueAnim 1s infinite linear;
+	-moz-animation: hueAnim 1s infinite linear;
+}
+.hue_animated_2s{
+	animation: hueAnim 2s infinite linear;
+	-webkit-animation: hueAnim 2s infinite linear;
+	-moz-animation: hueAnim 2s infinite linear;
+}
+.hue_animated_3s{
+	animation: hueAnim 3s infinite linear;
+	-webkit-animation: hueAnim 3s infinite linear;
+	-moz-animation: hueAnim 3s infinite linear;
+}
+
+@keyframes hueAnim {
+    from {
+        filter: hue-rotate(0deg);
+        -ms-filter: hue-rotate(0deg);
+        -moz-filter: hue-rotate(0deg);
+		-webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(-360deg);
+        -ms-filter: hue-rotate(-360deg);
+        -moz-filter: hue-rotate(-360deg);
+		-webkit-filter: hue-rotate(-360deg);
+    }
+}]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
